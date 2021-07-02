@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style type="text/css">
+         table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      height: 100px;
+    }
+
+    td, th {
+      border: 1px solid green;
+      text-align: left;
+      padding: 8px;
+      text-align: center;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+    <p id="demo5"></p>
+    <script type="text/javascript">
+        var global = [
+            [1, 'A', 'PHP2104', 6],
+            [2, 'B', 'PHP2104', 7],
+            [3, 'C', 'PHP2104', 8],
+            [4, 'D', 'PHP2104', 8],
+            [5, 'E', 'PHP2104', 6],
+            [6, 'F', 'PHP2104', 8],
+            [7, 'G', 'PHP2104', 9],
+            [8, 'H', 'PHP2104', 8],
+            [9, 'I', 'PHP2104', 7],
+            [10, 'K', 'PHP2104', 9],
+            [11, 'L', 'PHP2104', 9],
+            [12, 'M', 'PHP2104', 9],
+            [13, 'N', 'PHP2104', 8],
+            [14, 'O', 'PHP2104', 7],
+            [15, 'P', 'PHP2104', 8],
+        ];
+        var globala = global.length;
+        var i = 0;
+        function Load1(){
+            var text = "<table width='100%'>"
+                + "<tr>"
+                    + "<th>STT</th>"
+                    + "<th>Họ Tên</th>"
+                    + "<th>Lớp</th>"
+                    + "<th>Điểm</th>"
+                + "</tr>";
+
+            for (i; i < 5; i++) {
+                text += "<tr>";
+                childArr = global[i];
+                childArrLen = childArr.length;
+                for (var j = 0; j < childArrLen; j++) {
+                    text += "<td>" + childArr[j] + "</td>";
+                }
+                text += "</tr>";
+            }
+
+            text += "</table>";
+              document.getElementById("demo5").innerHTML = text;
+        }
+        function Deft(){
+            var text = "<table width='100%'>"
+                + "<tr>"
+                    + "<th>STT</th>"
+                    + "<th>Họ Tên</th>"
+                    + "<th>Lớp</th>"
+                    + "<th>Điểm</th>"
+                + "</tr>";
+            var y = (i+5);
+            console.log(y);
+            for (i=0; i < y; i++) {
+                text += "<tr>";
+                childArr = global[i];
+                childArrLen = childArr.length;
+
+                for (var j = 0; j < childArrLen; j++) {
+                    text += "<td>" + childArr[j] + "</td>";
+                }
+                text += "</tr>";
+            }
+
+            text += "</table>";
+
+              document.getElementById("demo5").innerHTML = text;
+                if(i==globala){
+                    document.getElementById("load").style.display = 'none';
+        }
+    }
+    </script>
+    <button id="load" onclick="Deft()">Load More</button>
+</body>
+</html>
