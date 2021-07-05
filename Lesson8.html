@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<body>
+<center><h2>JavaScript String Methods</h2></center>
+<b> Viet nam vo dich, vo dich </b>
+<button onclick="demkitu()">DEM SO KI TU</button>
+<p id="demkt"></p>
+<button onclick="demsotu()">DEM SO TU</button>
+<p id="demtu"></p>
+<button onclick="demkitulap()">DEM SO KI TU LAP LAI</button>
+<p id="demktlap"></p>
+<button onclick="demtulap()">DEM SO TU LAP LAI</button>
+<p id="demtlap"></p>
+<script>
+	function demkitu(){
+		var str = "Viet nam vo dich, vo dich";
+		var dem = str.length;
+		document.getElementById("demkt").innerHTML = 'Số kí tự  trong chuỗi là : ' +dem;
+	}
+	function demsotu(){
+		var str = "Viet nam vo dich, vo dich";
+		var array1 = str.split(" ");
+		var dem1 = array1.length;
+		document.getElementById("demtu").innerHTML ='Số từ trong chuỗi là : ' +dem1;
+	}
+	function demkitulap(){
+		var str = "Viet nam vo dich, vo dich";
+		var strLower = str.toLowerCase().replace(/ /g, '');
+		var dem2;
+		var strTmp = ''
+		var result = '';
+	     	for (var i = 0; i < strLower.length; i++) {
+	      		dem2 = 1;
+	      	for (var j = i + 1; j <= strLower.length; j++) {
+		if (strLower[i] == strLower[j]) {
+		  dem2++;
+		}
+	      }
+	      if (strTmp.indexOf(strLower[i]) == -1) {
+		result += 'Ký Tự ' +strLower[i] + ' xuất hiện ' + dem2 + ' lần trong chuỗi' + '<br>';
+		document.getElementById("demktlap").innerHTML = result;
+	      }
+	      strTmp += strLower[i];
+	    }
+  	}
+  function demtulap() {
+      var str = "Viet nam vo dich, vo dich" ;
+      var strLower = str.toLocaleLowerCase().split(" ") ;
+      console.log(strLower);
+      var dem3 ;
+      var strTmp ='' ;
+      var result ='' ;
+      for ( var i = 0; i < strLower.length; i++) {
+        dem3 = 1;
+        for( var j = i + 1; j <= strLower.length; j++){
+            if( strLower[i] == strLower[j]){
+              dem3++;
+            }
+        }
+        if (strTmp.indexOf(strLower[i]) == -1) {
+           result += 'Từ  ' +strLower[i] + ' xuất hiện ' + dem3 + ' lần trong chuỗi' + '<br>';
+        }
+        strTmp += strLower[i];
+      }
+        document.getElementById("demtlap").innerHTML= result;
+    }
+</script>
+</body>
+</html>
