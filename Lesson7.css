@@ -1,0 +1,40 @@
+tr,td,th{
+	border: 1px solid green;
+	text-align: center;
+}
+th{
+	width: 150px;
+}
+table{
+	padding: 0px 0px 0px 25%;
+}
+h1{
+	text-align: center;
+	color: red;
+}
+input#inputdata {
+    margin: 100px 0px 20px 755px;
+    width: 200px;
+    height: 18px;
+}	
+input#inputdata:focus{
+background-color: gold;
+}
+button.btn-sort-stt {
+    margin: 32px 50px 50px 340px;
+}
+button.btn-sort-point {
+    margin-right: 50px;
+}
+button.btn-reset-sort {
+    margin-right: 50px;
+}
+button:hover{
+	cursor: pointer;
+	border-radius: 3px;
+	background-color: red;
+}
+html{
+	background-image:url(img-sort/bgr.jpg) ;
+	background-repeat: no-repeat;
+}
