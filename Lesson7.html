@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="Lesson7.css">
+	<script src="https://www.w3schools.com/lib/w3.js"></script>
+	<title>Sinh Viên PHP 2104E</title>
+</head>
+<body>
+	<h1>Bảng Thống Kê Sinh Viên</h1>
+	<input type="text" id="inputdata" onkeyup="searchTable()" placeholder="Input key search.." title="Type in a name">
+	<table id="student">
+		<tr>
+			<th onclick="w3.sortHTML('#student', '.item', 'td:nth-child(1)')" style="cursor:pointer"> 
+				STT
+			</th>
+			<th> Họ Tên</th>
+			<th> Ngày Sinh</th>
+			<th> Điểm </th>
+		</tr>
+		<tr class="item">
+			<td>05</td>
+			<td>Giang</td>
+			<td>30/10/2000</td>
+			<td>8</td>
+		</tr>
+		<tr class="item">
+			<td>03</td>
+			<td>An</td>
+			<td>09/02/1998</td>
+			<td>9</td>
+		</tr>
+		<tr class="item">
+			<td>02</td>
+			<td>Chiến</td>
+			<td> 20/02/2000</td>
+			<td>10</td>
+		</tr>
+		<tr class="item">
+			<td>04</td>
+			<td>Minh</td>
+			<td>06/03/2001</td>
+			<td>4</td>
+		</tr>
+		<tr class="item">
+			<td>01</td>
+			<td>Nam</td>
+			<td>01/10/2002</td>
+			<td>5</td>
+		</tr>
+	</table>
+	<div>
+		<button onclick="sortSTT()" class="btn-sort-stt">Sort STT</button>
+		<button onclick="sortPoint()" class="btn-sort-point">Sort Point</button>
+		<button onclick="resetsort()" class="btn-reset-sort">Reset Sort</button>
+	</div>
+	<script>
+		function sortSTT() {
+	  	  var table, rows, switching, i, x, y, shouldSwitch;
+		  table = document.getElementById("student");
+		  switching = true;
+		  while (switching) 
+		  {
+		    switching = false;
+		    rows = table.rows;
+		    for (i = 1; i < (rows.length - 1); i++) 
+		    {
+		      shouldSwitch = false;
+		      x = rows[i].getElementsByTagName("td")[0];
+		      y = rows[i + 1].getElementsByTagName("td")[0];
+		      if (Number(x.innerHTML) > Number(y.innerHTML)) 
+		      {
+        		shouldSwitch = true;
+        	  	break;
+		      }
+		    }
+		    if (shouldSwitch) 
+		    {
+		      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+		      switching = true;
+		    }
+		  }
+		}
+		function sortPoint() {
+	  	  var table, rows, switching, i, x, y, shouldSwitch;
+		  table = document.getElementById("student");
+		  switching = true;
+		  while (switching) 
+		  {
+		    switching = false;
+		    rows = table.rows;
+		    for (i = 1; i < (rows.length - 1); i++) 
+		    {
+		      shouldSwitch = false;
+		      x = rows[i].getElementsByTagName("td")[3];
+		      y = rows[i + 1].getElementsByTagName("td")[3];
+		      if (Number(x.innerHTML) > Number(y.innerHTML)) 
+		      {
+        		shouldSwitch = true;
+        	  	break;
+		      }
+		    }
+		    if (shouldSwitch) 
+		    {
+		      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+		      switching = true;
+		    }
+		  }
+		}
+		function resetsort(){
+			location.reload();
+		}
+		function searchTable() {
+		  var input, filter, table, tr, td, i, txtValue;
+		  input = document.getElementById("inputdata");
+		  filter = input.value.toUpperCase();
+		  table = document.getElementById("student");
+		  tr = table.getElementsByTagName("tr");
+		  for (i = 0; i < tr.length; i++) 
+		  {
+		    td = tr[i].getElementsByTagName("td")[0];
+		    if (td) 
+		    {
+		      txtValue = td.textContent || td.innerText;
+		      if (txtValue.toUpperCase().indexOf(filter) > -1) 
+		      {
+		        tr[i].style.display = "";
+		      } 
+		      else 
+		      {
+		        tr[i].style.display = "none";
+		      }
+		    }       
+		  }
+		}
+	</script>
+</body>
+</html>
