@@ -28,16 +28,13 @@
 			 
 				// Bước 2: Validate và tính toán
 				$delta = ($b*$b) - (4*$a*$c);
-			 	if ($a==0 && $b==0 && $c==0){
+			 	if ($a == 0 && $b == 0 && $c == 0){
 					$result = 'Phương trình có vô số nghiệm' ;
-				}
-				else if ($delta < 0){
+				} else if ($delta < 0){
 					$result = 'Phương trình vô nghiệp';
-				}
-				else if ($delta == 0){
+				} else if ($delta == 0){
 					$result = 'Phương trình nghiệp kép x1 = x2 = ' . (-$b/2*$a);
-				}
-				else {
+				} else {
 					$result = 'Phương trình có hai nghiệp phân biệt, x1 = ' . ((-$b + sqrt($delta))/2*$a);
 					$result .= ',x2 = ' . ((-$b - sqrt($delta))/2*$a);
 				}
